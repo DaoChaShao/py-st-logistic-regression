@@ -1,0 +1,8 @@
+git-changelog==2.5.3
+streamlit==1.48.1
+numpy==2.3.2
+scikit-learn==1.7.1
+
+pandas==2.3.2
+pandas-stubs==2.3.0.250703
+
