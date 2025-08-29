@@ -5,6 +5,9 @@
 
 ### Features
 
+- implement data generation and visualization features in preparation.py ([2921ad6](https://github.com///commit/2921ad670c6e91a120baad757080586be6546b6d))
+- add data_generator function to generate synthetic data for demonstration ([f636ef8](https://github.com///commit/f636ef8f6d493de51ee008a792e81fbb4b55779f))
+- update CHANGELOG.md for version 0.1.0 with feature list and date correction ([f01701f](https://github.com///commit/f01701f0eb6dd0d4772fc6c36b51572cdda9eb4f))
 - remove unnecessary empty line in requirements.txt for cleaner formatting ([492ad6a](https://github.com///commit/492ad6a0302bdee82b554307b192de8169e8bb62))
 - rename display.py to preparation.py for clarity ([adea85d](https://github.com///commit/adea85d9e55e6678fd7e204920a878bbd7cffbae))
 - integrate page configuration and setter functions in main.py ([cd01408](https://github.com///commit/cd01408ea485e416f76e4f7fcfe7fee498af65c5))
