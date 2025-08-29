@@ -6,7 +6,9 @@
 # @File     :   helper.py
 # @Desc     :
 
+from pandas import DataFrame
 from random import seed as random_seed, getstate as get_state, setstate as set_state
+from random import randint
 from time import perf_counter
 
 
@@ -69,3 +71,30 @@ class SeedSetter(object):
     def __str__(self):
         """ Return a string representation of the random seed. """
         return f"SeedSetter with seed {self._seed}"
+
+
+def data_generator(amount: int) -> DataFrame:
+    """ Generate synthetic data for demonstration purposes.
+    :param amount: the amount of data to be generated
+    :return: a DataFrame containing the generated data
+    """
+    data: list = []
+
+    for _ in range(amount):
+        mock_i: int = randint(50, 100)
+        mock_ii: int = randint(50, 100)
+
+        if mock_i >= 60 and mock_ii >= 60:
+            data.append({
+                "mock_exam_i": randint(60, 100),
+                "mock_exam_ii": randint(60, 100),
+                "pass": 1,
+            })
+        else:
+            data.append({
+                "mock_exam_i": randint(0, 59),
+                "mock_exam_ii": randint(0, 59),
+                "pass": 0,
+            })
+
+    return DataFrame(data)
