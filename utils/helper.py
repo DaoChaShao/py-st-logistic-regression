@@ -7,6 +7,7 @@
 # @Desc     :
 
 from pandas import DataFrame
+from plotly.express import scatter
 from random import seed as random_seed, getstate as get_state, setstate as set_state
 from random import randint
 from time import perf_counter
@@ -81,20 +82,38 @@ def data_generator(amount: int) -> DataFrame:
     data: list = []
 
     for _ in range(amount):
-        mock_i: int = randint(50, 100)
-        mock_ii: int = randint(50, 100)
+        mock_i: int = randint(30, 100)
+        mock_ii: int = randint(30, 100)
 
         if mock_i >= 60 and mock_ii >= 60:
             data.append({
-                "mock_exam_i": randint(60, 100),
-                "mock_exam_ii": randint(60, 100),
-                "pass": 1,
+                "mock_exam_i": mock_i,
+                "mock_exam_ii": mock_ii,
+                "pass": "1",
             })
         else:
             data.append({
-                "mock_exam_i": randint(0, 59),
-                "mock_exam_ii": randint(0, 59),
-                "pass": 0,
+                "mock_exam_i": mock_i,
+                "mock_exam_ii": mock_ii,
+                "pass": "0",
             })
 
     return DataFrame(data)
+
+
+def scatter_category(data: DataFrame, x_name: str, y_name: str, category: str):
+    """ Get the unique categories in the target column.
+    :param data: the DataFrame containing the data
+    :param x_name: the name of the feature column (X)
+    :param y_name: the name of the target column (Y)
+    :param category: the name of the category column
+    :return: a scatter plot with different colours and symbols for each category
+    """
+    return scatter(
+        data,
+        x=x_name,
+        y=y_name,
+        color=category,
+        symbol=category,
+        hover_data=[x_name, y_name, category]
+    )
