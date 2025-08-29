@@ -5,6 +5,12 @@
 
 ### Features
 
+- enhance data generation and add scatter plot function for visualization ([5787a48](https://github.com///commit/5787a4892ffd5669f1061992ddd1d278161d0840))
+- add Logistic Regression page to navigation and update sidebar structure ([1d39f58](https://github.com///commit/1d39f589405877149a83975a086d5297155811ca))
+- enhance data visualization with scatter plot and improve session state management ([7c1f7df](https://github.com///commit/7c1f7dfae3069331f41f858cf66f23ac96585e1b))
+- add plotly for enhanced data visualization capabilities ([3e17b6a](https://github.com///commit/3e17b6a438c02dfc652c00fd179658c898653a26))
+- add simple.py for Logistic Regression model training and prediction ([b211e67](https://github.com///commit/b211e6789d030e02eabd69bcf04080ffb8ab8814))
+- update CHANGELOG.md with recent feature additions and corrections ([ec53ee5](https://github.com///commit/ec53ee5d0a23eeffce3dd72ab54c283f1039143e))
 - implement data generation and visualization features in preparation.py ([2921ad6](https://github.com///commit/2921ad670c6e91a120baad757080586be6546b6d))
 - add data_generator function to generate synthetic data for demonstration ([f636ef8](https://github.com///commit/f636ef8f6d493de51ee008a792e81fbb4b55779f))
 - update CHANGELOG.md for version 0.1.0 with feature list and date correction ([f01701f](https://github.com///commit/f01701f0eb6dd0d4772fc6c36b51572cdda9eb4f))
