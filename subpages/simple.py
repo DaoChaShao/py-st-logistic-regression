@@ -119,7 +119,9 @@ with sidebar:
             caption(f"The score of Mock Exam II is {mock_ii}.")
 
             if button("Prediction the Result of the Mock Exam III", type="primary", use_container_width=True):
-                prediction = session_state["model"].predict([[mock_i, mock_ii]])
+                prediction = session_state["model"].predict(
+                    DataFrame([[mock_i, mock_ii]], columns=["mock_exam_i", "mock_exam_ii"])
+                )
                 match prediction:
                     case "1":
                         with right:
