@@ -117,3 +117,4 @@ def scatter_category(data: DataFrame, x_name: str, y_name: str, category: str):
         symbol=category,
         hover_data=[x_name, y_name, category]
     )
+
