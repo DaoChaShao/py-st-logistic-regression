@@ -5,6 +5,8 @@
 
 ### Features
 
+- integrate quadratic decision boundary helper function for improved boundary visualization ([28e4beb](https://github.com///commit/28e4bebb8513534f19209fca321642fe00763dd2))
+- add function to compute decision boundaries for polynomial logistic regression ([83c14dc](https://github.com///commit/83c14dcd802d67250c56d8e0ce9e8a30777fb888))
 - add symbolic and numeric formula representations for polynomial boundaries ([66babdf](https://github.com///commit/66babdfe60326460d0bd32ab6f2c8e89147d7917))
 - remove commented-out code for clarity in polynomial logistic regression ([7c2dc38](https://github.com///commit/7c2dc38066e7762676d0f6745991c1d178aee885))
 - refactor polynomial logistic regression to streamline data processing and boundary calculations ([2d4b120](https://github.com///commit/2d4b120d59bde69a2f8b13874bea2ee79926c7f6))
@@ -44,6 +46,7 @@
 
 ### Chore
 
+- update CHANGELOG.md to reflect recent feature additions and improvements ([3acc1eb](https://github.com///commit/3acc1eb2bb8e3cf2bc4c276e951c0c6d9e853336))
 - update CHANGELOG.md to document recent changes and improvements ([24ae696](https://github.com///commit/24ae696fcc6c99bf93e0e4037eb90bce1acad833))
 - update CHANGELOG.md to include recent feature additions and improvements ([3dc323e](https://github.com///commit/3dc323ee3ba4f5c2ee77c4e8c44cbaa578bbc51e))
 - remove trailing whitespace in helper.py ([cab2585](https://github.com///commit/cab25850379eff486f443e22da9cc2fea25bdbe4))
