@@ -118,3 +118,28 @@ def scatter_category(data: DataFrame, x_name: str, y_name: str, category: str):
         hover_data=[x_name, y_name, category]
     )
 
+
+def quadratic_decision_boundary_getter(model, x) -> tuple:
+    """ Get the decision boundary of a polynomial logistic regression model.
+    :param model: the trained polynomial logistic regression model
+    :param x: the value of the feature column (X)
+    :return: the positive and negative decision boundaries
+    """
+    theta_0 = model.intercept_[0]
+    theta_1 = model.coef_[0][0]  # x1
+    theta_2 = model.coef_[0][1]  # x2
+    theta_3 = model.coef_[0][2]  # x1^2
+    theta_4 = model.coef_[0][3]  # x1*x2
+    theta_5 = model.coef_[0][4]  # x2^2
+
+    a = theta_5
+    b = theta_4 * x + theta_2
+    c = theta_3 * x ** 2 + theta_1 * x + theta_0
+    discriminant = b ** 2 - 4 * a * c
+
+    if discriminant < 0:
+        return None, None
+
+    boundary_pos = (-b + discriminant ** 0.5) / (2 * a)
+    boundary_neg = (-b - discriminant ** 0.5) / (2 * a)
+    return boundary_pos, boundary_neg
