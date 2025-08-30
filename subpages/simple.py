@@ -33,6 +33,8 @@ if "timer_s" not in session_state:
     session_state["timer_s"] = None
 if "model" not in session_state:
     session_state["model"] = None
+if "percentage" not in session_state:
+    session_state["percentage"] = None
 
 with sidebar:
     if session_state["data"] is None:
@@ -42,6 +44,10 @@ with sidebar:
 
         X = session_state["data"].drop(columns=[session_state["passed"]])
         Y = session_state["data"][session_state["passed"]]
+
+        comparison: DataFrame = DataFrame({"Actual": Y, "Predicted": session_state.y})
+        empty_table_title.markdown("**The Results of the Trained Logistic Regression**")
+        empty_table.data_editor(comparison, hide_index=True, disabled=True, use_container_width=True)
 
         if session_state["y"] is None:
             subheader("Training Settings")
@@ -56,14 +62,14 @@ with sidebar:
                     session_state["timer_s"] = t
                     rerun()
         else:
-            # comparison: DataFrame = DataFrame({"Actual": Y, "Predicted": session_state.y})
-            # empty_table_title.markdown("**The Results of the Trained Logistic Regression**")
-            # empty_table.data_editor(comparison, hide_index=True, disabled=True, use_container_width=True)
-
             accuracy: float = accuracy_score(Y, session_state.y)
-            percentage: float = round(accuracy * 100, 1)
+            session_state["percentage"] = round(accuracy * 100, 1)
             with left:
-                metric("Accuracy", f"{percentage} %", delta=f"{percentage - 100} %", delta_color="normal")
+                metric(
+                    "Accuracy",
+                    f"{session_state.percentage} %", delta=f"{session_state.percentage - 100} %",
+                    delta_color="normal"
+                )
             empty_messages.success(f"Logistic Regression Training Complete. {session_state.timer_s}")
 
             theta_0: float = session_state["model"].intercept_[0]
@@ -82,17 +88,15 @@ with sidebar:
                 .replace(r"\theta_2", f"{theta_2:.4f}")
             )
 
-            x_2 = -(theta_0 + theta_1 * x_1) / theta_2
+            x_boundary = -(theta_0 + theta_1 * x_1) / theta_2
             fig = scatter_category(
                 session_state.data,
                 session_state["data"].columns[0], session_state["data"].columns[1],
                 session_state.passed
             )
             fig.add_scatter(
-                x=x_1,
-                y=x_2,
-                mode="lines",
-                name="Category Boundary",
+                x=x_1, y=x_boundary,
+                mode="lines", name="Category Boundary",
                 line=dict(color="red", dash="dash", width=3)
             )
             empty_chart.plotly_chart(fig, use_container_width=True)
@@ -102,7 +106,6 @@ with sidebar:
                 "Score of Mock Exam I",
                 min_value=1,
                 max_value=100,
-                value=int(session_state["data"].iloc[:, 0].mean()),
                 step=1,
                 help="Select a random score of the Mock Exam I"
             )
@@ -112,7 +115,6 @@ with sidebar:
                 "Score of Mock Exam II",
                 min_value=1,
                 max_value=100,
-                value=int(session_state["data"].iloc[:, 1].mean()),
                 step=1,
                 help="Select a random score of the Mock Exam II"
             )
