@@ -19,6 +19,8 @@ empty_messages: empty = empty()
 left, mid, right = columns(3, gap="large")
 empty_table: empty = empty()
 empty_chart: empty = empty()
+empty_formula_symbolic: empty = empty()
+empty_formula_numeric: empty = empty()
 
 if "data" not in session_state:
     session_state["data"] = None
@@ -77,6 +79,22 @@ with sidebar:
             theta_3 = session_state["polynomial"].coef_[0][2]
             theta_4 = session_state["polynomial"].coef_[0][3]
             theta_5 = session_state["polynomial"].coef_[0][4]
+            empty_formula_symbolic.latex(
+                r"""
+                    (\theta_5) x_2^2 + (\theta_4 x_1 + \theta_2) x_2 + (\theta_3 x_1^2 + \theta_1 x_1 + \theta_0) = 0
+                """
+            )
+            empty_formula_numeric.latex(
+                r"""
+                    (\theta_5) x_2^2 \;+\; (\theta_4 x_1 + \theta_2) x_2 \;+\; (\theta_3 x_1^2 + \theta_1 x_1 + \theta_0) \;=\; 0
+                """
+                .replace(r"\theta_0", f"{theta_0[0]:.4f}")
+                .replace(r"\theta_1", f"{theta_1:.4f}")
+                .replace(r"\theta_2", f"{theta_2:.4f}")
+                .replace(r"\theta_3", f"{theta_3:.4f}")
+                .replace(r"\theta_4", f"{theta_4:.4f}")
+                .replace(r"\theta_5", f"{theta_5:.4f}")
+            )
             # print(theta_0, theta_1, theta_2, theta_3, theta_4, theta_5)
             x_1 = session_state["data"].iloc[:, 0]
             x_1 = x_1.sort_values()
@@ -85,9 +103,9 @@ with sidebar:
             c = theta_3 * x_1 ** 2 + theta_1 * x_1 + theta_0
             discriminant = b ** 2 - 4 * a * c
 
-            boundary_1 = (-b + discriminant ** 0.5) / (2 * a)
-            boundary_2 = (-b - discriminant ** 0.5) / (2 * a)
-            # print(x_boundary)
+            boundary_positive = (-b + discriminant ** 0.5) / (2 * a)
+            boundary_negative = (-b - discriminant ** 0.5) / (2 * a)
+            # print(boundary_positive, boundary_negative)
 
             fig = scatter_category(
                 session_state["data"],
@@ -96,12 +114,12 @@ with sidebar:
                 category=session_state["passed"]
             )
             fig.add_scatter(
-                x=x_1, y=boundary_1,
+                x=x_1, y=boundary_positive,
                 mode="lines", name="Category Boundary",
                 line=dict(color="red", dash="dash", width=3)
             )
             fig.add_scatter(
-                x=x_1, y=boundary_2,
+                x=x_1, y=boundary_negative,
                 mode="lines", name="Category Boundary",
                 line=dict(color="red", dash="dash", width=3)
             )
