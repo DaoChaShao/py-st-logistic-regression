@@ -118,7 +118,7 @@ with sidebar:
             )
             caption(f"The score of Mock Exam II is {mock_ii}.")
 
-            if button("Prediction with the Scores", type="primary", use_container_width=True):
+            if button("Prediction the Result of the Mock Exam III", type="primary", use_container_width=True):
                 prediction = session_state["model"].predict([[mock_i, mock_ii]])
                 match prediction:
                     case "1":
