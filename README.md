@@ -9,6 +9,45 @@ This application is designed to provide an intuitive and hands-on understanding 
 machine learning algorithm for binary classification problems. Unlike what its name suggests, it is used to predict
 categorical outcomes (e.g., Yes/No, Spam/Not Spam, 1/0) rather than continuous values.
 
+**Features**
+---
+**Data Generation & Simulation**
+
+- Generate synthetic student exam data with a configurable random seed and data amount.
+- Automatically label pass/fail results.
+
+**Interactive Data Exploration**
+
+- View data in editable tables (read-only mode).
+- Explore data trends with line charts and scatter plots.
+- Select feature columns and target columns for analysis.
+
+**Simple Logistic Regression**
+
+- Train a standard logistic regression model.
+- Display linear decision boundary and formula.
+- Evaluate model accuracy.
+- Predict pass/fail for new exam scores.
+
+**Polynomial Logistic Regression (Degree 2)**
+
+- Capture non-linear relationships with polynomial feature expansion.
+- Show symbolic and numeric quadratic decision boundaries.
+- Visualise non-linear decision boundaries.
+- Compare performance with simple logistic regression.
+
+**Utility Functions & Reproducibility**
+
+- Timer to measure code execution time.
+- SeedSetter to control random seed for reproducibility.
+- Helper functions for data generation, plotting, and boundary calculation.
+
+**Streamlit Interactive Interface**
+
+- Sidebar controls for data generation, feature selection, and model training.
+- Responsive charts and metrics for instant feedback.
+- Explore linear vs polynomial decision boundaries interactively.
+
 **WEB DEVELOPMENT**
 ---
 
