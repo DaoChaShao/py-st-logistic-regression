@@ -5,6 +5,9 @@
 
 ### Features
 
+- add percentage calculation and display for logistic regression accuracy ([b3898b2](https://github.com///commit/b3898b2db8c8b7df37994f29a80a74352bb20648))
+- implement polynomial logistic regression functionality with data validation and prediction ([86772f4](https://github.com///commit/86772f461cfe42ae81ddb6c72588ddc3203daf89))
+- add polynomial regression page to navigation layout ([a697ee4](https://github.com///commit/a697ee497bdfa143d18092b15d2e9121915ea09d))
 - update button label for Mock Exam III prediction functionality ([28adb1a](https://github.com///commit/28adb1a1aba4d2feb33b078a558d5a4ec25a5b56))
 - enhance data generation and add scatter plot function for visualization ([5787a48](https://github.com///commit/5787a4892ffd5669f1061992ddd1d278161d0840))
 - add Logistic Regression page to navigation and update sidebar structure ([1d39f58](https://github.com///commit/1d39f589405877149a83975a086d5297155811ca))
@@ -38,6 +41,7 @@
 
 ### Chore
 
+- update CHANGELOG.md for version 0.1.0 with recent changes and fixes ([66213bc](https://github.com///commit/66213bcde5fd1990581647171e4bda980d21de4e))
 - update CHANGELOG.md with recent feature additions and corrections ([0f76a88](https://github.com///commit/0f76a881d716c45075dab3437d2598ad49ebea1b))
 
 ### Docs
