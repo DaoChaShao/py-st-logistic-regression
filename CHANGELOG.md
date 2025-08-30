@@ -1,10 +1,11 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/0eb171b3204362c28c79a12781d1e7d305f92b33...0.1.0) (2025-08-29)
+## [0.1.0](https://github.com///compare/0eb171b3204362c28c79a12781d1e7d305f92b33...0.1.0) (2025-08-30)
 
 ### Features
 
+- update button label for Mock Exam III prediction functionality ([28adb1a](https://github.com///commit/28adb1a1aba4d2feb33b078a558d5a4ec25a5b56))
 - enhance data generation and add scatter plot function for visualization ([5787a48](https://github.com///commit/5787a4892ffd5669f1061992ddd1d278161d0840))
 - add Logistic Regression page to navigation and update sidebar structure ([1d39f58](https://github.com///commit/1d39f589405877149a83975a086d5297155811ca))
 - enhance data visualization with scatter plot and improve session state management ([7c1f7df](https://github.com///commit/7c1f7dfae3069331f41f858cf66f23ac96585e1b))
@@ -30,6 +31,14 @@
 - create main.py with initial main function ([9c7a595](https://github.com///commit/9c7a5959df6a2eb6548009a5aedaf7f8284b2fac))
 - add pyproject.toml for changelog configuration ([3bb737b](https://github.com///commit/3bb737bd84750682966c092efc60027c75aee10a))
 - add requirements.txt with project dependencies ([991fd86](https://github.com///commit/991fd866d074ad9f828e5985577db8fe90e7b139))
+
+### Bug Fixes
+
+- update prediction logic for Mock Exam III to use DataFrame for input ([ee3b769](https://github.com///commit/ee3b769b9b7cb0d0c18b11544c94fc93375a68f5))
+
+### Chore
+
+- update CHANGELOG.md with recent feature additions and corrections ([0f76a88](https://github.com///commit/0f76a881d716c45075dab3437d2598ad49ebea1b))
 
 ### Docs
 
