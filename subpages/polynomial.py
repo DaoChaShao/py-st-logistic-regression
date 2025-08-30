@@ -37,15 +37,6 @@ with sidebar:
     else:
         empty_messages.success("Data is available. You can proceed with Polynomial Logistic Regression.")
 
-        # x_1 = session_state["data"].iloc[:, 0]
-        # x_2 = session_state["data"].iloc[:, 1]
-        # X = DataFrame({
-        #     "x1": x_1,
-        #     "x2": x_2,
-        #     "x1_square": x_1 ** 2,
-        #     "x2_square": x_2 ** 2,
-        #     "x1_x2_product": x_1 * x_2,
-        # })
         X = session_state["data"].drop(columns=[session_state["passed"]])
         # Initialise the Polynomial Features transformer
         ploy = PolynomialFeatures(degree=2, include_bias=False)
