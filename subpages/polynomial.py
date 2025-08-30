@@ -13,7 +13,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from streamlit import (empty, sidebar, subheader, session_state, button,
                        rerun, columns, metric, slider, caption)
 
-from utils.helper import Timer, scatter_category
+from utils.helper import Timer, scatter_category, quadratic_decision_boundary_getter
 
 empty_messages: empty = empty()
 left, mid, right = columns(3, gap="large")
@@ -33,7 +33,7 @@ if "timer_ploy" not in session_state:
 if "percentage" not in session_state:
     session_state["percentage"] = None
 
-with sidebar:
+with (sidebar):
     if session_state["data"] is None:
         empty_messages.error("No data available. Please generate data in the 'Data Preparation' section first.")
     else:
@@ -107,6 +107,14 @@ with sidebar:
             boundary_negative = (-b - discriminant ** 0.5) / (2 * a)
             # print(boundary_positive, boundary_negative)
 
+            # Using the helper function to get the decision boundary
+            # poses = []
+            # negs = []
+            # for x in x_1:
+            #     pos, neg = quadratic_decision_boundary_getter(session_state["polynomial"], x)
+            #     poses.append(pos)
+            #     negs.append(neg)
+
             fig = scatter_category(
                 session_state["data"],
                 x_name=session_state["data"].columns[0],
@@ -114,14 +122,18 @@ with sidebar:
                 category=session_state["passed"]
             )
             fig.add_scatter(
-                x=x_1, y=boundary_positive,
-                mode="lines", name="Category Boundary",
+                x=x_1,
+                y=boundary_positive,
+                # y=poses,
+                mode="lines", name="pos boundary",
                 line=dict(color="red", dash="dash", width=3)
             )
             fig.add_scatter(
-                x=x_1, y=boundary_negative,
-                mode="lines", name="Category Boundary",
-                line=dict(color="red", dash="dash", width=3)
+                x=x_1,
+                y=boundary_negative,
+                # y=negs,
+                mode="lines", name="neg boundary",
+                line=dict(color="red", dash="solid", width=3)
             )
             empty_chart.plotly_chart(fig, use_container_width=True)
 
