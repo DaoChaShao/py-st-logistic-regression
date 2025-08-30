@@ -6,11 +6,10 @@
 # @File     :   polynomial.py
 # @Desc     :
 
-from numpy import sqrt
 from pandas import DataFrame
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import StandardScaler, PolynomialFeatures
+from sklearn.preprocessing import PolynomialFeatures
 from streamlit import (empty, sidebar, subheader, session_state, button,
                        rerun, columns, metric, slider, caption)
 
@@ -38,15 +37,19 @@ with sidebar:
     else:
         empty_messages.success("Data is available. You can proceed with Polynomial Logistic Regression.")
 
-        x_1 = session_state["data"].iloc[:, 0]
-        x_2 = session_state["data"].iloc[:, 1]
-        X = DataFrame({
-            "x1": x_1,
-            "x2": x_2,
-            "x1_square": x_1 ** 2,
-            "x2_square": x_2 ** 2,
-            "x1_x2_product": x_1 * x_2,
-        })
+        # x_1 = session_state["data"].iloc[:, 0]
+        # x_2 = session_state["data"].iloc[:, 1]
+        # X = DataFrame({
+        #     "x1": x_1,
+        #     "x2": x_2,
+        #     "x1_square": x_1 ** 2,
+        #     "x2_square": x_2 ** 2,
+        #     "x1_x2_product": x_1 * x_2,
+        # })
+        X = session_state["data"].drop(columns=[session_state["passed"]])
+        # Initialise the Polynomial Features transformer
+        ploy = PolynomialFeatures(degree=2, include_bias=False)
+        X = ploy.fit_transform(X)
         Y = session_state["data"][session_state["passed"]]
 
         if session_state["polynomial"] is None:
@@ -84,12 +87,15 @@ with sidebar:
             theta_4 = session_state["polynomial"].coef_[0][3]
             theta_5 = session_state["polynomial"].coef_[0][4]
             # print(theta_0, theta_1, theta_2, theta_3, theta_4, theta_5)
+            x_1 = session_state["data"].iloc[:, 0]
             x_1 = x_1.sort_values()
-            a = theta_4
-            b = theta_5 * x_1 + theta_2
-            c = theta_0 + theta_1 * x_1 + theta_3 * x_1 ** 2
+            a = theta_5
+            b = theta_4 * x_1 + theta_2
+            c = theta_3 * x_1 ** 2 + theta_1 * x_1 + theta_0
             discriminant = b ** 2 - 4 * a * c
-            x_boundary = (-b + discriminant ** 0.5) / (2 * a)
+
+            boundary_1 = (-b + discriminant ** 0.5) / (2 * a)
+            boundary_2 = (-b - discriminant ** 0.5) / (2 * a)
             # print(x_boundary)
 
             fig = scatter_category(
@@ -99,7 +105,12 @@ with sidebar:
                 category=session_state["passed"]
             )
             fig.add_scatter(
-                x=x_1, y=x_boundary,
+                x=x_1, y=boundary_1,
+                mode="lines", name="Category Boundary",
+                line=dict(color="red", dash="dash", width=3)
+            )
+            fig.add_scatter(
+                x=x_1, y=boundary_2,
                 mode="lines", name="Category Boundary",
                 line=dict(color="red", dash="dash", width=3)
             )
@@ -127,11 +138,9 @@ with sidebar:
             if button("Prediction the Result of the Mock Exam III", type="primary", use_container_width=True):
 
                 entries: DataFrame = DataFrame([[mock_i, mock_ii]], columns=["mock_exam_i", "mock_exam_ii"])
-                ploy = PolynomialFeatures(degree=2, include_bias=False)
-                transform = ploy.fit_transform(entries)
-                x_entries = DataFrame(transform, columns=X.columns)
+                x = ploy.fit_transform(entries)
 
-                prediction = session_state["polynomial"].predict(x_entries)
+                prediction = session_state["polynomial"].predict(x)
                 match prediction:
                     case "1":
                         with right:
