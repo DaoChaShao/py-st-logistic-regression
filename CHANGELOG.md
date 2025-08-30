@@ -5,6 +5,7 @@
 
 ### Features
 
+- add symbolic and numeric formula representations for polynomial boundaries ([66babdf](https://github.com///commit/66babdfe60326460d0bd32ab6f2c8e89147d7917))
 - remove commented-out code for clarity in polynomial logistic regression ([7c2dc38](https://github.com///commit/7c2dc38066e7762676d0f6745991c1d178aee885))
 - refactor polynomial logistic regression to streamline data processing and boundary calculations ([2d4b120](https://github.com///commit/2d4b120d59bde69a2f8b13874bea2ee79926c7f6))
 - add percentage calculation and display for logistic regression accuracy ([b3898b2](https://github.com///commit/b3898b2db8c8b7df37994f29a80a74352bb20648))
@@ -43,6 +44,7 @@
 
 ### Chore
 
+- update CHANGELOG.md to document recent changes and improvements ([24ae696](https://github.com///commit/24ae696fcc6c99bf93e0e4037eb90bce1acad833))
 - update CHANGELOG.md to include recent feature additions and improvements ([3dc323e](https://github.com///commit/3dc323ee3ba4f5c2ee77c4e8c44cbaa578bbc51e))
 - remove trailing whitespace in helper.py ([cab2585](https://github.com///commit/cab25850379eff486f443e22da9cc2fea25bdbe4))
 - update CHANGELOG.md for version 0.1.0 with recent feature additions ([e234a0c](https://github.com///commit/e234a0c2675c4c3cff632c2476cbd249c6594468))
