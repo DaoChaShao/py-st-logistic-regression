@@ -5,6 +5,8 @@
 
 ### Features
 
+- update README.zh-CN.md to improve feature list formatting for clarity ([b86daff](https://github.com///commit/b86daffbd6f001d4accf1edcaba47ddcfa92049d))
+- update README.md to enhance feature list formatting for better readability ([209bd86](https://github.com///commit/209bd866866763f8fa42e2ad37c5d3fe2d1efd6b))
 - update README.zh-CN.md to include detailed features and functionalities of the application ([434c245](https://github.com///commit/434c245835e2296aa1d0b8d26fa71937a8c205bc))
 - update README.md to include detailed features and functionalities of the logistic regression application ([60edec7](https://github.com///commit/60edec71aeaba25ae912c238f8b893d9f4f31876))
 - add introduction section to home.py for enhanced user guidance on logistic regression example ([9af1149](https://github.com///commit/9af1149cdc893af257db7b3a3c0e0c276a5ada51))
@@ -50,8 +52,8 @@
 
 ### Chore
 
+- update CHANGELOG.md to reflect recent feature additions and improvements ([75a9e70](https://github.com///commit/75a9e708c2dc294f8e1620fff447fd0cef2fa52b))
 - update CHANGELOG.md to include recent feature additions and improvements ([1e4f35f](https://github.com///commit/1e4f35f7611663f0f3a2b135bbfe05b89bcdf372))
-- update CHANGELOG.md to reflect recent feature additions and improvements ([3acc1eb](https://github.com///commit/3acc1eb2bb8e3cf2bc4c276e951c0c6d9e853336))
 - update CHANGELOG.md to document recent changes and improvements ([24ae696](https://github.com///commit/24ae696fcc6c99bf93e0e4037eb90bce1acad833))
 - remove trailing whitespace in helper.py ([cab2585](https://github.com///commit/cab25850379eff486f443e22da9cc2fea25bdbe4))
 - update CHANGELOG.md for version 0.1.0 with recent feature additions ([e234a0c](https://github.com///commit/e234a0c2675c4c3cff632c2476cbd249c6594468))
