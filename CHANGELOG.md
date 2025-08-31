@@ -1,10 +1,11 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/0eb171b3204362c28c79a12781d1e7d305f92b33...0.1.0) (2025-08-30)
+## [0.1.0](https://github.com///compare/0eb171b3204362c28c79a12781d1e7d305f92b33...0.1.0) (2025-08-31)
 
 ### Features
 
+- update README.zh-CN.md to reorganize web development section for better clarity ([d723002](https://github.com///commit/d7230024c5e3611eeada051c0611f85d722d5cfd))
 - update README.zh-CN.md to improve feature list formatting for clarity ([b86daff](https://github.com///commit/b86daffbd6f001d4accf1edcaba47ddcfa92049d))
 - update README.md to enhance feature list formatting for better readability ([209bd86](https://github.com///commit/209bd866866763f8fa42e2ad37c5d3fe2d1efd6b))
 - update README.zh-CN.md to include detailed features and functionalities of the application ([434c245](https://github.com///commit/434c245835e2296aa1d0b8d26fa71937a8c205bc))
@@ -52,6 +53,7 @@
 
 ### Chore
 
+- update CHANGELOG.md to include recent updates to README files for improved clarity and readability ([dc52cda](https://github.com///commit/dc52cdae6f8e5d9adb11bc3a962e58af4c0beea7))
 - update CHANGELOG.md to reflect recent feature additions and improvements ([75a9e70](https://github.com///commit/75a9e708c2dc294f8e1620fff447fd0cef2fa52b))
 - update CHANGELOG.md to include recent feature additions and improvements ([1e4f35f](https://github.com///commit/1e4f35f7611663f0f3a2b135bbfe05b89bcdf372))
 - update CHANGELOG.md to document recent changes and improvements ([24ae696](https://github.com///commit/24ae696fcc6c99bf93e0e4037eb90bce1acad833))
