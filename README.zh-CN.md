@@ -7,12 +7,6 @@
 ---
 本应用旨在为学习者提供一个直观且动手实践的途径，来理解逻辑回归——这是一种用于解决二分类问题的基础机器学习算法（例如：通过/不通过、垃圾邮件/非垃圾邮件、1/0）。尽管名字中有“回归”，它实际上用于预测类别标签，而非连续值。
 
-**网页开发**
----
-
-1. 使用命令`pip install streamlit`安装`Streamlit`平台。
-2. 执行`pip show streamlit`或者`pip show git-streamlit | grep Version`检查是否已正确安装该包及其版本。
-
 **功能特色**
 ---
 
@@ -41,6 +35,12 @@
     - 侧边栏控制数据生成、特征选择和模型训练。
     - 响应式图表和指标即时反馈。
     - 支持探索线性与多项式决策边界差异。
+
+**网页开发**
+---
+
+1. 使用命令`pip install streamlit`安装`Streamlit`平台。
+2. 执行`pip show streamlit`或者`pip show git-streamlit | grep Version`检查是否已正确安装该包及其版本。
 
 **隐私声明**
 ---
